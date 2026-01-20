@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Writing Academic Papers with Claude + Obsidian</title>
+  <meta name="description" content="A structured workflow for using AI to accelerate academic writing. Applicable across all disciplines.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <h2>Tutorial</h2>
+      <ul>
+        <li><a href="#intro">Introduction</a></li>
+        <li class="section-title">The Workflow</li>
+        <li><a href="#core-insight">Core Insight</a></li>
+        <li><a href="#what-is-vault">What is a Vault?</a></li>
+        <li><a href="#vault-structure">Vault Structure</a></li>
+        <li><a href="#safety">Safety Setup</a></li>
+        <li class="section-title">Four Phases</li>
+        <li><a href="#phase-1">1. Preparation</a></li>
+        <li><a href="#phase-2">2. Exploration</a></li>
+        <li><a href="#phase-3">3. Distillation</a></li>
+        <li><a href="#phase-4">4. Implementation</a></li>
+        <li class="section-title">Reference</li>
+        <li><a href="#domain">Domain Adaptation</a></li>
+        <li><a href="#critique">Effective Critique</a></li>
+        <li><a href="#journal">The Journal</a></li>
+        <li><a href="#problems">Common Problems</a></li>
+        <li><a href="#quick-ref">Quick Reference</a></li>
+        <li><a href="#sources">Sources</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <header class="hero">
+        <h1>Writing Academic Papers with Claude + Obsidian</h1>
+        <p class="tagline">A structured workflow for using AI to accelerate academic writing. Applicable across all disciplines.</p>
+        <div class="actions">
+          <a href="#intro" class="btn btn-primary">Start the Tutorial</a>
+          <a href="https://github.com/DigitalHumanitiesCraft/academic-writing-with-ai" class="btn btn-secondary">View on GitHub</a>
+        </div>
+      </header>
+
+      <section id="intro">
+        <h2>What This Guide Is</h2>
+        <p>This guide provides a workflow for AI-assisted academic writing. It covers the prose-heavy parts of scholarship: literature synthesis, argumentation, drafting, and revision.</p>
+
+        <div class="card-grid">
+          <div class="card">
+            <h4>Tools Required</h4>
+            <ul>
+              <li><a href="https://obsidian.md/">Obsidian</a>: Markdown-based notes (free)</li>
+              <li><a href="https://claude.ai">Claude</a>: Via web or <a href="https://docs.anthropic.com/en/docs/claude-code">Claude Code</a></li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>Prerequisites</h4>
+            <ul>
+              <li>Basic Obsidian familiarity</li>
+              <li>A research question or thesis</li>
+              <li>Claude Pro subscription</li>
+            </ul>
+          </div>
+        </div>
+
+        <p>You will use Obsidian as your knowledge base and Claude as your writing partner. The web interface works for the full workflow; Claude Code adds the ability to read and write files in your vault directly. Despite its name, Claude Code is not just for programmers. It excels at any task involving structured text and files.</p>
+
+        <h3>The Workflow Overview</h3>
+<pre><code>┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐
+│ 1. PREPARE  │───▶│ 2. EXPLORE  │───▶│ 3. DISTILL  │───▶│ 4. IMPLEMENT│
+│             │    │             │    │             │    │             │
+│ Gather      │    │ Test ideas  │    │ Compress    │    │ Draft,      │
+│ materials   │    │ with AI     │    │ into context│    │ revise,     │
+│             │    │             │    │ documents   │    │ verify      │
+└─────────────┘    └─────────────┘    └─────────────┘    └─────────────┘
+                                              ▲                  │
+                                              └──────────────────┘
+                                                   (iterate)</code></pre>
+
+        <div class="card-grid">
+          <div class="card">
+            <h4>This Accelerates</h4>
+            <ul>
+              <li>Literature review and synthesis</li>
+              <li>Drafting and structuring arguments</li>
+              <li>Iterative revision</li>
+              <li>Cross-disciplinary exploration</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>This Does Not Replace</h4>
+            <p>Your domain expertise and the intellectual work only you can do: running experiments, conducting interviews, close reading, or formal derivation.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="core-insight">
+        <h2>The Core Insight</h2>
+        <p>AI output quality depends almost entirely on input context quality.</p>
+        <p><strong>Dump a vague request</strong> → get hollow, generic text.</p>
+        <p><strong>Provide structured, compressed context</strong> → get useful output.</p>
+        <p>This is <strong>Context Engineering</strong>: actively managing what the AI sees. The documents you create aren't just notes. They shape what AI can do for you.</p>
+
+        <div class="aside aside-tip">
+          <p class="aside-title">The Key Principle</p>
+          <p>The context documents are the artifact. The generated text is replaceable.</p>
+        </div>
+
+        <div class="placeholder">
+          <strong>IMAGE: context-quality-diagram.png</strong>
+          <p>Diagram comparing messy input → poor output vs. structured input → quality output</p>
+        </div>
+      </section>
+
+      <section id="what-is-vault">
+        <h2>What is a Vault?</h2>
+        <p>A "vault" is Obsidian's term for a folder of interconnected markdown files. Unlike traditional note-taking apps, Obsidian stores everything as plain text files on your computer. No proprietary formats, no lock-in.</p>
+
+        <h3>Why this matters for AI-assisted writing</h3>
+        <table>
+          <tr>
+            <th>Benefit</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td><strong>Persistence</strong></td>
+            <td>Your intellectual identity (writing style, methodological commitments, theoretical positions) lives in files that persist across projects</td>
+          </tr>
+          <tr>
+            <td><strong>Accumulation</strong></td>
+            <td>Sources build up over time; each paper draws on previous work through internal links</td>
+          </tr>
+          <tr>
+            <td><strong>AI-readability</strong></td>
+            <td>Claude Code can directly access markdown files, reading your context and writing drafts into your project folders</td>
+          </tr>
+          <tr>
+            <td><strong>Portability</strong></td>
+            <td>If tools change, your knowledge base remains. It's just folders and text files.</td>
+          </tr>
+        </table>
+
+        <div class="placeholder">
+          <strong>IMAGE: vault-structure.png</strong>
+          <p>Obsidian sidebar showing the complete Academic-Vault folder structure with all subfolders expanded</p>
+        </div>
+      </section>
+
+      <section id="vault-structure">
+        <h2>Vault Structure</h2>
+        <p>Create this folder structure in your Obsidian vault:</p>
+
+<pre><code>/Academic-Vault/
+├── CLAUDE.md                    # Your AI constitution
+├── me/                          # Your intellectual identity
+│   ├── style.md
+│   ├── methodologies.md
+│   └── positions.md
+├── References/                  # All sources, linked across projects
+├── Attachments/                 # PDFs, data files
+└── projects/
+    └── Paper-Name/
+        ├── CLAUDE.md            # Project-specific rules
+        ├── context/
+        │   ├── research.md
+        │   ├── data.md
+        │   ├── requirements.md
+        │   └── design.md
+        ├── drafts/
+        ├── feedback/
+        └── journal.md</code></pre>
+
+        <h3>Why This Structure</h3>
+        <ul>
+          <li><strong><code>/me</code></strong> carries your intellectual identity across projects: your writing voice, preferred methods, and theoretical commitments</li>
+          <li><strong><code>/References</code></strong> accumulates over time. Sources link across papers, building a personal knowledge graph.</li>
+          <li><strong><code>/projects/Paper-Name/context/</code></strong> holds the distilled context AI actually uses (not raw materials, but compressed insights)</li>
+          <li><strong><code>journal.md</code></strong> documents your process for future reuse and methodological transparency</li>
+        </ul>
+
+        <div class="aside aside-caution">
+          <p class="aside-title">Guarding Against Echo Chambers</p>
+          <p>If you store your positions in <code>/me/positions.md</code>, the AI will reinforce rather than challenge your assumptions. Consider adding a <code>challenges.md</code> file containing the strongest arguments <em>against</em> your positions, and instruct the AI to read it. This forces productive friction into the workflow.</p>
+        </div>
+
+        <div class="aside aside-note">
+          <p class="aside-title">Note on Terminology</p>
+          <p>The filenames (<code>requirements.md</code>, <code>design.md</code>) borrow from project management to enforce clarity. They apply to any structured argument, not just technical work.</p>
+        </div>
+      </section>
+
+      <section id="safety">
+        <h2>Safety Setup</h2>
+        <p>Before granting Claude Code file access to your vault:</p>
+
+        <ol class="steps">
+          <li>
+            <strong>Set up real backups.</strong>
+            <p>Obsidian's File Recovery is a snapshot tool, not a true backup. For agentic workflows where AI can write files, use Git, Time Machine, or maintain an archive folder that the AI has no write access to. If something goes wrong, you need recovery outside the system the AI can touch.</p>
+          </li>
+          <li>
+            <strong>Understand the access model.</strong>
+            <p>Claude Code can read and write files in any folder you give it access to. This is powerful but requires trust. Real backups ensure that trust is recoverable.</p>
+          </li>
+          <li>
+            <strong>Check your target journal's AI policy.</strong>
+            <p>Some publishers (Nature, Science, Elsevier, and others) prohibit or restrict uploading unpublished manuscripts to generative AI. Verify compliance before using this workflow on work intended for specific venues. Never use this workflow for confidential peer review materials.</p>
+          </li>
+        </ol>
+
+        <div class="placeholder">
+          <strong>IMAGE: obsidian-file-recovery.png</strong>
+          <p>Obsidian Settings → File Recovery panel with toggle enabled</p>
+        </div>
+      </section>
+
+      <section id="phase-1">
+        <h2>Phase 1: Preparation</h2>
+
+        <div class="aside aside-tip">
+          <p class="aside-title">Goal</p>
+          <p>Assemble raw materials without organizing them yet.</p>
+        </div>
+
+        <p>The purpose of this phase is collection, not analysis. Resist the urge to structure too early. You don't yet know what will matter most.</p>
+
+        <ol class="steps">
+          <li>
+            <strong>Create your project folder</strong> in your Obsidian vault under <code>/projects/Paper-Name/</code> with the subdirectories shown above (<code>context/</code>, <code>drafts/</code>, <code>feedback/</code>)
+          </li>
+          <li>
+            <strong>Write your initial thesis and questions</strong> in <code>context/requirements.md</code>. This doesn't need to be polished. Just capture what you're trying to argue and what you need to figure out.
+          </li>
+          <li>
+            <strong>Collect sources</strong>: Download PDFs to <code>/Attachments</code>, create notes in <code>/References</code>. How you structure these notes is up to you. Some prefer detailed annotations, others just bibliographic info and a few key quotes. The point is having sources accessible and linkable.
+          </li>
+          <li>
+            <strong>Start <code>journal.md</code></strong> with today's date and your initial state: What do you already know? What are you uncertain about? What's your current best guess at the argument?
+          </li>
+        </ol>
+
+        <p><strong>Don't organize yet. Just collect.</strong></p>
+
+        <div class="placeholder">
+          <strong>IMAGE: phase-1-collection.png</strong>
+          <p>Obsidian split view showing: project folder structure, PDFs in Attachments, Reference notes, and journal.md with initial entry</p>
+        </div>
+      </section>
+
+      <section id="phase-2">
+        <h2>Phase 2: Exploration & Mapping</h2>
+
+        <div class="aside aside-tip">
+          <p class="aside-title">Goal</p>
+          <p>Test your thesis against the literature and identify the strongest and weakest points of your argument.</p>
+        </div>
+
+        <p>This phase produces <strong>working ideas</strong>, not polished documents. You're having a conversation with Claude to stress-test your thinking before committing to a structure.</p>
+
+        <h3>Questions to Explore</h3>
+        <ul>
+          <li>What's actually possible with my sources/data?</li>
+          <li>What are the strongest objections to my argument?</li>
+          <li>What adjacent fields have relevant frameworks I'm missing?</li>
+          <li>Where does my thesis need refinement?</li>
+        </ul>
+
+        <h3>Key Prompt Pattern</h3>
+<pre><code>I'm developing a paper arguing [THESIS].
+
+Before I commit:
+1. Steel-man the strongest opposing view
+2. Identify the 3 weakest points in my argument
+3. What evidence would change your assessment?
+
+Be critical, not agreeable.</code></pre>
+
+        <h3>Document in <code>journal.md</code></h3>
+        <ul>
+          <li>What you tested</li>
+          <li>What held up, what didn't</li>
+          <li>Dead ends and why</li>
+          <li>Sources to verify</li>
+        </ul>
+
+        <div class="aside aside-caution">
+          <p class="aside-title">Early Verification Checkpoint</p>
+          <p>As you explore, flag uncertain claims by adding <code>[verify]</code> inline. Don't wait until the end to discover your argument rests on a hallucinated source. Check key claims against your actual sources now. AI can misrepresent what sources say.</p>
+        </div>
+
+        <div class="placeholder">
+          <strong>IMAGE: phase-2-exploration.png</strong>
+          <p>Claude conversation showing the steel-man prompt and Claude's critical response identifying argument weaknesses</p>
+        </div>
+      </section>
+
+      <section id="phase-3">
+        <h2>Phase 3: Distillation</h2>
+
+        <div class="aside aside-tip">
+          <p class="aside-title">Goal</p>
+          <p>Compress everything you've learned into focused context documents that work well for AI.</p>
+        </div>
+
+        <div class="aside aside-caution">
+          <p class="aside-title">This Is Not a Shortcut</p>
+          <p>This is front-loading the cognitive labor. You are building the blueprint so the AI can build the walls. If the blueprint is weak, the house collapses. Distillation is where you do the hard thinking; drafting is where the AI helps you execute it.</p>
+        </div>
+
+        <p><strong>Why this matters:</strong> AI performance degrades with context length ("context rot"). More tokens ≠ better output. You want maximum information in minimum space.</p>
+
+        <h3>The Context Documents</h3>
+        <table>
+          <tr>
+            <th>Document</th>
+            <th>Contains</th>
+          </tr>
+          <tr>
+            <td><code>research.md</code></td>
+            <td>Theoretical framework, state of field, key sources (linked to <code>/References</code>, not quoted in full)</td>
+          </tr>
+          <tr>
+            <td><code>data.md</code></td>
+            <td>What you're working with, structure, access methods, limitations</td>
+          </tr>
+          <tr>
+            <td><code>requirements.md</code></td>
+            <td>Research questions as clear, testable statements</td>
+          </tr>
+          <tr>
+            <td><code>design.md</code></td>
+            <td>Paper structure, argument flow, venue requirements</td>
+          </tr>
+        </table>
+
+<pre><code>┌─────────────────────────────────────────────────────────────────────┐
+│                         YOUR SOURCES                                 │
+│  ┌──────────────┐                    ┌──────────────┐               │
+│  │ /References/ │                    │ /Attachments/│               │
+│  └──────┬───────┘                    └──────┬───────┘               │
+└─────────┼───────────────────────────────────┼───────────────────────┘
+          │                                   │
+          ▼                                   ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                      CONTEXT DOCUMENTS                               │
+│  ┌────────────┐ ┌────────────┐ ┌────────────────┐ ┌──────────┐     │
+│  │research.md │ │  data.md   │ │requirements.md │ │design.md │     │
+│  └─────┬──────┘ └─────┬──────┘ └───────┬────────┘ └────┬─────┘     │
+└────────┼──────────────┼────────────────┼───────────────┼────────────┘
+         │              │                │               │
+         └──────────────┴────────────────┴───────────────┘
+                                │
+                                ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                           OUTPUT                                     │
+│              ┌──────────┐         ┌────────────┐                    │
+│              │ /drafts/ │◀───────▶│ /feedback/ │                    │
+│              └──────────┘         └────────────┘                    │
+└─────────────────────────────────────────────────────────────────────┘</code></pre>
+
+        <h3>The Craft of Distillation</h3>
+        <p><strong>Bad distillation</strong> = dumping everything potentially relevant</p>
+        <p><strong>Good distillation</strong> = only what's necessary for THIS paper, compressed to essentials</p>
+
+        <p>Ask yourself:</p>
+        <ul>
+          <li>If I cut this, would the AI output suffer?</li>
+          <li>Am I describing or just copying?</li>
+          <li>Is this already in AI's training data? (Don't explain what regression is, or who Foucault was.)</li>
+        </ul>
+
+        <div class="aside aside-tip">
+          <p class="aside-title">Link, Don't Paste</p>
+          <p>Reference sources in <code>/References</code>; the AI gets the distilled insight, you keep the full record. When prompting Claude Code, explicitly instruct it to read linked files: "Read all files linked in the References section before generating the draft."</p>
+        </div>
+
+        <div class="aside aside-note">
+          <p class="aside-title">Context Budget</p>
+          <p>Aim to keep your combined context documents under <strong>3,000 words</strong>. If they're longer, you probably aren't distilling; you're dumping. This is a guideline, not a hard rule.</p>
+        </div>
+
+        <p><strong>Verification before finalizing:</strong> Before you consider these documents complete, verify that key sources actually say what you think they say. Misunderstandings from Phase 2 will propagate through the entire draft if you don't catch them here.</p>
+
+        <div class="placeholder">
+          <strong>IMAGE: phase-3-distillation.png</strong>
+          <p>Four context documents shown side-by-side: research.md, data.md, requirements.md, design.md. Each visibly SHORT to emphasize compression.</p>
+        </div>
+      </section>
+
+      <section id="phase-4">
+        <h2>Phase 4: Implementation</h2>
+
+        <div class="aside aside-tip">
+          <p class="aside-title">Goal</p>
+          <p>Generate, critique, and refine drafts until the quality is publishable.</p>
+        </div>
+
+        <h3>Step 1: Generate First Draft</h3>
+        <p>Provide your context documents to Claude. Request a complete draft.</p>
+
+<pre><code>Write a complete draft based on this context:
+
+[Paste or reference research.md]
+[Paste or reference requirements.md]
+[Paste or reference design.md]
+
+Requirements:
+- Every claim grounded in provided sources
+- No filler phrases
+- Flag uncertainties explicitly</code></pre>
+
+        <h3>Step 2: Expect It to Be Bad</h3>
+        <p>First drafts are typically hollow: structurally correct but thin on substance. This is normal. The draft gives you something concrete to push against.</p>
+
+        <h3>Step 3: Push Back with Specificity</h3>
+        <p><strong>Vague critique</strong> → vague revision.</p>
+        <p><strong>Specific critique</strong> → actual improvement.</p>
+
+<pre><code>Problems with this draft:
+
+1. Paragraph 3 claims "scholars have debated X" without specifics.
+   Name the scholars, state the positions, cite the sources.
+
+2. The transition from section 2 to 3 is asserted, not argued.
+   What's the logical connection?
+
+3. "It is important to note" appears 4 times.
+   Cut all instances. Make direct claims.
+
+4. You cite Martinez 2021 but this isn't in my sources.
+   Remove or replace with provided sources only.
+
+Revise addressing these specifically.</code></pre>
+
+        <h3>Step 4: Peer Review Cycles</h3>
+        <p>Use a <strong>fresh session</strong> (new conversation) as critical reviewer. The session that wrote the draft has seen all your context and reasoning. It's primed to defend its own output rather than critique it. A fresh session approaches the text without that history.</p>
+
+<pre><code>You are a critical peer reviewer. Evaluate this draft:
+
+[Paste draft]
+
+Assess:
+- Argument structure and logical gaps
+- Evidence quality and support for claims
+- Actual contribution vs. restatement
+- Weaknesses a skeptical reviewer would attack
+
+Be harsh. I need criticism, not encouragement.</code></pre>
+
+        <div class="aside aside-tip">
+          <p>Many academic journals publish their reviewer guidelines online. Feed these criteria into your review prompt for discipline-appropriate feedback.</p>
+        </div>
+
+        <p>Save feedback in <code>/feedback</code> → feed back to writing session → iterate 2-3 times.</p>
+
+        <h3>Step 5: Human Editing</h3>
+        <p>Take over. This is where your intellectual fingerprint goes.</p>
+        <p>Questions to ask yourself:</p>
+        <ul>
+          <li>Would I defend this claim in a seminar?</li>
+          <li>Is this MY argument or generic synthesis?</li>
+          <li>Can I explain this without notes?</li>
+        </ul>
+
+        <h3>Step 6: Source Verification</h3>
+        <p>Check every citation against actual sources. AI generates plausible-sounding but wrong references confidently. You should have caught major issues in earlier verification checkpoints, but do a final systematic check.</p>
+
+        <p>Create <code>feedback/verification-log.md</code>:</p>
+
+<pre><code>## [Source]
+- Claim in draft: "..."
+- Actual text: "..." (p. X)
+- Status: ✓ Verified / ✗ Remove / ~ Revise</code></pre>
+
+        <div class="placeholder">
+          <strong>IMAGE: phase-4-implementation.png</strong>
+          <p>Composite showing the revision cycle: (1) hollow first draft, (2) specific critique prompt, (3) improved revision</p>
+        </div>
+
+        <div class="placeholder">
+          <strong>IMAGE: verification-log.png</strong>
+          <p>Example verification-log.md showing 3-4 academic sources with ✓/✗/~ status marks</p>
+        </div>
+      </section>
+
+      <section id="domain">
+        <h2>Domain Adaptation</h2>
+        <p>The workflow is universal. What changes is what fills the context documents.</p>
+
+        <table>
+          <tr>
+            <th>Research Type</th>
+            <th>data.md contains</th>
+          </tr>
+          <tr>
+            <td><strong>Experimental</strong></td>
+            <td>Protocols, datasets, variables, statistical approach</td>
+          </tr>
+          <tr>
+            <td><strong>Theoretical</strong></td>
+            <td>Frameworks, prior results, formal setup</td>
+          </tr>
+          <tr>
+            <td><strong>Qualitative</strong></td>
+            <td>Coding schemes, source descriptions, methodology, positionality</td>
+          </tr>
+          <tr>
+            <td><strong>Interpretive/Hermeneutic</strong></td>
+            <td>Primary sources, archival materials, interpretive framework. Treat <code>design.md</code> as provisional; you may rewrite it after seeing the first draft, and that's the method, not failure.</td>
+          </tr>
+          <tr>
+            <td><strong>Mixed Methods</strong></td>
+            <td>Combine relevant elements from above</td>
+          </tr>
+        </table>
+
+        <div class="aside aside-caution">
+          <p class="aside-title">Note on Sensitive Data</p>
+          <p>Context documents describe structure and approach. Never paste raw participant data, proprietary datasets, or confidential materials into AI.</p>
+        </div>
+      </section>
+
+      <section id="critique">
+        <h2>Effective Critique</h2>
+        <p>The skill that most improves AI output is <strong>specific, substantive pushback</strong>.</p>
+
+        <div class="tabs">
+          <div class="tab-buttons">
+            <button class="tab-btn active" onclick="showTab(this, 'weak')">Weak Critique</button>
+            <button class="tab-btn" onclick="showTab(this, 'strong')">Strong Critique</button>
+          </div>
+          <div id="weak" class="tab-content active">
+            <ul>
+              <li>"Make it better"</li>
+              <li>"This isn't quite right"</li>
+              <li>"More academic"</li>
+            </ul>
+          </div>
+          <div id="strong" class="tab-content">
+            <ul>
+              <li>"Claim X in paragraph 3 has no supporting evidence. Add citation or remove."</li>
+              <li>"The logical structure is: A → B → C. But B → C isn't argued, only asserted. Explain the mechanism."</li>
+              <li>"This uses positivist framing. My approach is interpretivist. Reframe around meaning-making, not causation."</li>
+              <li>"Section 4 is 800 words but adds nothing not already in section 2. Cut or differentiate."</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>Domain-Specific Examples</h3>
+        <div class="tabs">
+          <div class="tab-buttons">
+            <button class="tab-btn active" onclick="showTab(this, 'quant')">Quantitative</button>
+            <button class="tab-btn" onclick="showTab(this, 'exp')">Experimental</button>
+            <button class="tab-btn" onclick="showTab(this, 'theo')">Theoretical</button>
+            <button class="tab-btn" onclick="showTab(this, 'qual')">Qualitative</button>
+          </div>
+          <div id="quant" class="tab-content active">
+            <p>"You describe 'significant results' without specifying significance level, test used, or effect size. Add statistical specifics."</p>
+          </div>
+          <div id="exp" class="tab-content">
+            <p>"Methods must follow CONSORT structure. Reorganize into: participants, interventions, outcomes, sample size, randomization."</p>
+          </div>
+          <div id="theo" class="tab-content">
+            <p>"The proof sketch in section 3 skips from step 2 to step 4. Make the intermediate step explicit."</p>
+          </div>
+          <div id="qual" class="tab-content">
+            <p>"This reads as naive realism. Add reflexivity statement addressing researcher positionality."</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="journal">
+        <h2>The Journal</h2>
+        <p><code>journal.md</code> serves three functions:</p>
+        <ol>
+          <li><strong>Process documentation</strong>: What you did, what worked, what didn't</li>
+          <li><strong>Knowledge capture</strong>: Insights that don't fit in context docs but matter</li>
+          <li><strong>Future reference</strong>: Reusable patterns for similar projects</li>
+        </ol>
+
+        <h3>Entry Format</h3>
+<pre><code>## YYYY-MM-DD
+
+### Did
+- [Actions taken]
+
+### Learned
+- [Insights, surprises, dead ends]
+
+### Next
+- [What follows from today]</code></pre>
+
+        <h3>Final Entry</h3>
+<pre><code>## YYYY-MM-DD (Complete)
+
+### What worked
+### What I'd change
+### Time spent
+### Reusable for future</code></pre>
+
+        <div class="placeholder">
+          <strong>IMAGE: journal-entry.png</strong>
+          <p>journal.md showing a realistic entry with Did/Learned/Next sections filled in</p>
+        </div>
+      </section>
+
+      <section id="problems">
+        <h2>Common Problems</h2>
+
+        <div class="card">
+          <h4>AI keeps producing generic output</h4>
+          <p>Your context is too vague or too long. Distill harder. Be more specific in requirements.</p>
+        </div>
+
+        <div class="card">
+          <h4>AI ignores my theoretical framework</h4>
+          <p>State it explicitly in prompts: "My approach is [X]. Do not use [Y] framing."</p>
+        </div>
+
+        <div class="card">
+          <h4>AI hallucinates citations</h4>
+          <p>Constrain: "Only cite from these sources: [list]." Verify everything anyway.</p>
+        </div>
+
+        <div class="card">
+          <h4>Output improves then degrades</h4>
+          <p>Context window filling up. Start fresh session with just context documents.</p>
+        </div>
+
+        <div class="card">
+          <h4>Workflow feels slow</h4>
+          <p>For shorter papers, combine documents (research + requirements in one file). Skip peer review cycles. The full workflow is for substantial research papers.</p>
+        </div>
+      </section>
+
+      <section id="quick-ref">
+        <h2>Quick Reference</h2>
+<pre><code>PREPARATION     → Gather materials, initial questions, start journal
+EXPLORATION     → Test ideas with AI, map possibilities, verify critical claims
+DISTILLATION    → Compress into context documents, verify sources
+IMPLEMENTATION  → Draft → Push back → Review cycles → Verify → Human editing
+
+Context Documents:
+  research.md     = Framework + sources
+  data.md         = What you're working with
+  requirements.md = Your questions
+  design.md       = Structure + venue
+
+Core Principles:
+  Your thinking first
+  Compress, don't dump
+  Critique specifically
+  Verify throughout (not just at the end)
+  Journal the process</code></pre>
+      </section>
+
+      <section id="sources">
+        <h2>Sources</h2>
+        <ul>
+          <li>Christopher Pollin: <a href="https://lisa.gerda-henkel-stiftung.de/digitale_geschichte_pollin">"Promptotyping"</a>. L.I.S.A. Wissenschaftsportal, 2026.</li>
+          <li>Andrew Maynard: <a href="https://andrewmaynard.substack.com/p/i-cracked-and-wrote-an-academic-paper">"I cracked and wrote an academic paper using AI"</a>. The Future of Being Human, 2026.</li>
+          <li>Steph Ango: <a href="https://stephango.com/vault">"How I use Obsidian"</a>. stephango.com.</li>
+          <li>Ethan Mollick: <a href="https://www.penguinrandomhouse.com/books/741805/co-intelligence-by-ethan-mollick/">Co-Intelligence: Living and Working with AI</a>. Portfolio/Penguin Random House, 2024.</li>
+          <li>The Neuron: <a href="https://www.theneuron.ai/explainer-articles/how-to-turn-claude-code-into-your-personal-ai-assistant">"How to Turn Claude Code Into Your Personal AI Assistant"</a>. 2025.</li>
+        </ul>
+      </section>
+
+      <section id="tools-note">
+        <h2>Note on Tools</h2>
+        <p>This guide is written for Claude Code and Obsidian as they exist in early 2026. Tools evolve. New AI assistants will emerge, interfaces will change, capabilities will expand.</p>
+
+        <p>The methodology is more durable:</p>
+        <ul>
+          <li>Context engineering (compress, don't dump)</li>
+          <li>Iterative critique (push back with specificity)</li>
+          <li>Verification throughout (don't trust, verify)</li>
+          <li>Process documentation (journal your work)</li>
+        </ul>
+
+        <p>If you're reading this with different tools, the principles still apply. Adapt the specific instructions to whatever AI and knowledge management system you're using.</p>
+      </section>
+
+      <footer>
+        <p>Released under the MIT License. <a href="https://github.com/DigitalHumanitiesCraft/academic-writing-with-ai">View on GitHub</a></p>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    function showTab(btn, tabId) {
+      const tabs = btn.closest('.tabs');
+      tabs.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      tabs.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      tabs.querySelector('#' + tabId).classList.add('active');
+    }
+  </script>
+</body>
+</html>
