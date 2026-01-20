@@ -1,4 +1,4 @@
-# Writing Academic Papers with Claude Code + Obsidian
+# Writing Academic Papers with Claude + Obsidian
 
 A structured, step-by-step workflow for using AI to accelerate academic writing—applicable across all disciplines.
 
@@ -8,11 +8,16 @@ A structured, step-by-step workflow for using AI to accelerate academic writing�
 
 This guide provides a complete workflow for AI-assisted academic writing. It covers the prose-heavy parts of scholarship: literature synthesis, argumentation, drafting, and revision.
 
-**Tools Required:**
-- [Obsidian](https://obsidian.md/) — A markdown-based note-taking application (free)
-- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) — Anthropic's AI coding assistant that can read and write files
+**Tools:**
+- [Obsidian](https://obsidian.md/) — A markdown-based note-taking application that stores files locally (free)
+- [Claude](https://claude.ai) — Anthropic's AI assistant, via web interface or [Claude Code](https://docs.anthropic.com/en/docs/claude-code) for direct file access
 
-You will use Obsidian as your knowledge base and Claude Code as your writing partner. Claude Code can access your vault directly, reading your context documents and generating drafts into your project folders.
+You will use Obsidian as your knowledge base and Claude as your writing partner. The web interface works for the full workflow; Claude Code adds the ability to read and write files in your vault directly.
+
+**Prerequisites:**
+- Basic familiarity with Obsidian (creating files, folders, links)
+- A research question or initial thesis to develop
+- Access to Claude (free tier works; Pro recommended for extended use)
 
 **This workflow accelerates:**
 - Literature review and synthesis
@@ -163,7 +168,7 @@ Be critical, not agreeable.
 - Dead ends and why
 - Sources to verify
 
-**Early verification checkpoint:** As you explore, flag any factual claims that seem critical to your argument. Don't wait until the end to verify—check key claims against your actual sources now. AI can subtly misrepresent what sources say.
+**Early verification checkpoint:** As you explore, flag uncertain claims by adding `[verify]` inline. Don't wait until the end to discover your argument rests on a hallucinated source—check key claims against your actual sources now. AI can subtly misrepresent what sources say.
 
 ---
 
@@ -318,6 +323,20 @@ The skill that most improves AI output is **specific, substantive pushback**.
 - "The logical structure is: A → B → C. But B → C isn't argued, only asserted. Explain the mechanism."
 - "This uses positivist framing. My approach is interpretivist. Reframe around meaning-making, not causation."
 - "Section 4 is 800 words but adds nothing not already in section 2. Cut or differentiate."
+
+**Domain-specific examples:**
+
+*Quantitative:*
+"You describe 'significant results' without specifying significance level, test used, or effect size. Add statistical specifics."
+
+*Experimental:*
+"Methods must follow CONSORT structure. Reorganize into: participants, interventions, outcomes, sample size, randomization."
+
+*Theoretical:*
+"The proof sketch in section 3 skips from step 2 to step 4. Make the intermediate step explicit."
+
+*Qualitative:*
+"This reads as naive realism. Add reflexivity statement addressing researcher positionality."
 
 ---
 
