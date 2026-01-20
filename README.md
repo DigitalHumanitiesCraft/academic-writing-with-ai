@@ -23,7 +23,7 @@ You will use Obsidian as your knowledge base and Claude as your writing partner.
 **Prerequisites:**
 - Basic familiarity with Obsidian (creating files, folders, links)
 - A research question or initial thesis to develop
-- Access to Claude (free tier works; Pro recommended for extended use)
+- A Claude subscription (Pro at minimum). The free tier has strict message limits that make the iteration cycles in Phase 4 impractical.
 
 **This workflow accelerates:**
 - Literature review and synthesis
