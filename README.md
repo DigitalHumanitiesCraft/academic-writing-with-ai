@@ -1,18 +1,24 @@
 # Writing Academic Papers with Claude + Obsidian
 
-A structured, step-by-step workflow for using AI to accelerate academic writing. Applicable across all disciplines.
+A structured workflow for using AI to accelerate academic writing. Applicable across all disciplines.
 
 ---
 
 ## What This Guide Is
 
-This guide provides a complete workflow for AI-assisted academic writing. It covers the prose-heavy parts of scholarship: literature synthesis, argumentation, drafting, and revision.
+This guide provides a workflow for AI-assisted academic writing. It covers the prose-heavy parts of scholarship: literature synthesis, argumentation, drafting, and revision.
 
 **Tools:**
 - [Obsidian](https://obsidian.md/): A markdown-based note-taking application that stores files locally (free)
 - [Claude](https://claude.ai): Anthropic's AI assistant, via web interface or [Claude Code](https://docs.anthropic.com/en/docs/claude-code) for direct file access
 
-You will use Obsidian as your knowledge base and Claude as your writing partner. The web interface works for the full workflow; Claude Code adds the ability to read and write files in your vault directly.
+You will use Obsidian as your knowledge base and Claude as your writing partner. The web interface works for the full workflow; Claude Code adds the ability to read and write files in your vault directly. Despite its name, Claude Code is not just for programmers. It excels at any task involving structured text and files.
+
+**The workflow:**
+1. **Preparation**: Gather materials, set up project structure
+2. **Exploration**: Test ideas with AI as sparring partner
+3. **Distillation**: Compress what you learned into focused context documents
+4. **Implementation**: Draft, critique, revise, verify
 
 **Prerequisites:**
 - Basic familiarity with Obsidian (creating files, folders, links)
@@ -25,11 +31,7 @@ You will use Obsidian as your knowledge base and Claude as your writing partner.
 - Iterative revision
 - Cross-disciplinary exploration
 
-**This workflow does not replace:**
-- Primary source work or fieldwork
-- Formal argumentation or interpretation
-- Disciplinary judgment and methodological decisions
-- Your actual expertise
+**This workflow does not replace** your domain expertise and the intellectual work only you can do, whether that's running experiments, conducting interviews, close reading, or formal derivation.
 
 ---
 
@@ -38,9 +40,9 @@ You will use Obsidian as your knowledge base and Claude as your writing partner.
 AI output quality depends almost entirely on input context quality.
 
 Dump a vague request → get hollow, generic text.
-Provide structured, compressed context → get useful, substantive output.
+Provide structured, compressed context → get useful output.
 
-This is **Context Engineering**: actively managing what the AI sees. The documents you create aren't just notes. They're a "thinking environment" that makes AI useful.
+This is **Context Engineering**: actively managing what the AI sees. The documents you create aren't just notes. They shape what AI can do for you.
 
 > The context documents are the artifact. The generated text is replaceable.
 
@@ -53,11 +55,11 @@ A "vault" is Obsidian's term for a folder of interconnected markdown files. Unli
 **Why this matters for AI-assisted writing:**
 
 1. **Persistence**: Your intellectual identity (writing style, methodological commitments, theoretical positions) lives in files that persist across projects
-2. **Compounding**: Sources accumulate over time; each paper builds on previous work through internal links
-3. **AI-readability**: Claude Code can directly access markdown files, reading your distilled context and writing drafts into your project folders
-4. **Portability**: If tools change, your knowledge base remains: just folders and text files
+2. **Accumulation**: Sources build up over time; each paper draws on previous work through internal links
+3. **AI-readability**: Claude Code can directly access markdown files, reading your context and writing drafts into your project folders
+4. **Portability**: If tools change, your knowledge base remains. It's just folders and text files.
 
-The vault structure below organizes your research so that Claude receives focused, distilled context rather than everything at once.
+The vault structure below organizes your research so that Claude receives focused context rather than everything at once.
 
 ---
 
@@ -89,17 +91,33 @@ Create this folder structure in your Obsidian vault:
 
 **Why this structure:**
 - `/me` carries your intellectual identity across projects: your writing voice, preferred methods, and theoretical commitments
-- `/References` compounds over time as sources link across papers, building a personal knowledge graph
+- `/References` accumulates over time. Sources link across papers, building a personal knowledge graph.
 - `/projects/Paper-Name/context/` holds the distilled context AI actually uses (not raw materials, but compressed insights)
 - `journal.md` documents your process for future reuse and methodological transparency
 
+**Guarding against echo chambers:** If you store your positions in `/me/positions.md`, the AI will reinforce rather than challenge your assumptions. Consider adding a `challenges.md` file containing the strongest arguments *against* your positions, and instruct the AI to read it. This forces productive friction into the workflow.
+
+**Note on terminology:** The filenames below (`requirements.md`, `design.md`) borrow from project management to enforce clarity. They apply to any structured argument, not just technical work.
+
 ---
 
-## Before You Begin: The Big Picture
+## Before You Begin
 
 This workflow assumes you're **developing an argument**, not just reviewing literature. From Phase 2 onward, you're actively testing whether your thesis holds up against existing scholarship.
 
 If you're writing a literature review without an original argument, the workflow still applies, but your "thesis" becomes your organizational framework or the gap you're identifying in the field.
+
+---
+
+## Safety Setup
+
+Before granting Claude Code file access to your vault:
+
+1. **Set up real backups.** Obsidian's File Recovery is a snapshot tool, not a true backup. For agentic workflows where AI can write files, use Git, Time Machine, or maintain an archive folder that the AI has no write access to. If something goes wrong, you need recovery outside the system the AI can touch.
+
+2. **Understand the access model.** Claude Code can read and write files in any folder you give it access to. This is powerful but requires trust. Real backups ensure that trust is recoverable.
+
+3. **Check your target journal's AI policy.** Some publishers (Nature, Science, Elsevier, and others) prohibit or restrict uploading unpublished manuscripts to generative AI. Verify compliance before using this workflow on work intended for specific venues. Never use this workflow for confidential peer review materials.
 
 ---
 
@@ -117,20 +135,9 @@ The purpose of this phase is collection, not analysis. Resist the urge to struct
 
 2. **Write your initial thesis and questions** in `context/requirements.md`. This doesn't need to be polished. Just capture what you're trying to argue and what you need to figure out.
 
-3. **Collect sources:**
-   - Download PDFs to `/Attachments`
-   - For each source, create a note in `/References` with:
-     - Bibliographic information
-     - Key quotes (with page numbers)
-     - Your initial reactions and questions
-   - Don't summarize yet. Just capture what strikes you
+3. **Collect sources**: Download PDFs to `/Attachments`, create notes in `/References`. How you structure these notes is up to you. Some prefer detailed annotations, others just bibliographic info and a few key quotes. The point is having sources accessible and linkable.
 
-4. **Start `journal.md`** with today's date and your initial state:
-   - What do you already know about this topic?
-   - What are you uncertain about?
-   - What's your current best guess at the argument?
-
-   This baseline lets you track how your thinking evolves and provides methodological transparency if anyone asks about your process.
+4. **Start `journal.md`** with today's date and your initial state: What do you already know? What are you uncertain about? What's your current best guess at the argument?
 
 **Don't organize yet. Just collect.**
 
@@ -140,7 +147,7 @@ The purpose of this phase is collection, not analysis. Resist the urge to struct
 
 **Goal:** Test your thesis against the literature and identify the strongest and weakest points of your argument.
 
-This phase produces **preliminary insights and working hypotheses**, not polished documents. You're having a conversation with Claude to stress-test your ideas before committing to a structure.
+This phase produces **working ideas**, not polished documents. You're having a conversation with Claude to stress-test your thinking before committing to a structure.
 
 **Questions to explore:**
 
@@ -162,19 +169,21 @@ Before I commit:
 Be critical, not agreeable.
 ```
 
-**Document insights in `journal.md`:**
+**Document in `journal.md`:**
 - What you tested
 - What held up, what didn't
 - Dead ends and why
 - Sources to verify
 
-**Early verification checkpoint:** As you explore, flag uncertain claims by adding `[verify]` inline. Don't wait until the end to discover your argument rests on a hallucinated source. Check key claims against your actual sources now. AI can subtly misrepresent what sources say.
+**Early verification checkpoint:** As you explore, flag uncertain claims by adding `[verify]` inline. Don't wait until the end to discover your argument rests on a hallucinated source. Check key claims against your actual sources now. AI can misrepresent what sources say.
 
 ---
 
 ### Phase 3: Distillation
 
-**Goal:** Compress everything you've learned into focused context documents optimized for AI processing.
+**Goal:** Compress everything you've learned into focused context documents that work well for AI.
+
+**This is not a shortcut.** This is front-loading the cognitive labor. You are building the blueprint so the AI can build the walls. If the blueprint is weak, the house collapses. Distillation is where you do the hard thinking; drafting is where the AI helps you execute it.
 
 **Why this matters:** AI performance degrades with context length ("context rot"). More tokens ≠ better output. You want maximum information in minimum space.
 
@@ -197,7 +206,9 @@ Ask yourself:
 - Am I describing or just copying?
 - Is this already in AI's training data? (Don't explain what regression is, or who Foucault was.)
 
-**Link, don't paste.** Reference sources in `/References`; the AI gets the distilled insight, you keep the full record.
+**Link, don't paste.** Reference sources in `/References`; the AI gets the distilled insight, you keep the full record. When prompting Claude Code, explicitly instruct it to read linked files: "Read all files linked in the References section before generating the draft."
+
+**Context budget:** Aim to keep your combined context documents under 3,000 words. If they're longer, you probably aren't distilling; you're dumping. This is a guideline, not a hard rule.
 
 **Verification before finalizing:** Before you consider these documents complete, verify that key sources actually say what you think they say. Misunderstandings from Phase 2 will propagate through the entire draft if you don't catch them here.
 
@@ -226,7 +237,7 @@ Requirements:
 
 #### Step 2: Expect it to be bad
 
-First drafts are typically hollow: structurally correct but substantively thin. This is normal. The draft gives you something concrete to push against.
+First drafts are typically hollow: structurally correct but thin on substance. This is normal. The draft gives you something concrete to push against.
 
 #### Step 3: Push back with specificity
 
@@ -249,7 +260,7 @@ Revise addressing these specifically.
 
 #### Step 4: Peer review cycles
 
-Use a **FRESH session** (new conversation) as critical reviewer. The session that wrote the draft has seen all your context and reasoning, so it's primed to defend its own output rather than critique it. A fresh session approaches the text without that baggage.
+Use a **fresh session** (new conversation) as critical reviewer. The session that wrote the draft has seen all your context and reasoning. It's primed to defend its own output rather than critique it. A fresh session approaches the text without that history.
 
 ```
 You are a critical peer reviewer. Evaluate this draft:
@@ -302,7 +313,7 @@ The workflow is universal. What changes is what fills the context documents.
 | Experimental | Protocols, datasets, variables, statistical approach |
 | Theoretical | Frameworks, prior results, formal setup |
 | Qualitative | Coding schemes, source descriptions, methodology, positionality |
-| Interpretive/Hermeneutic | Primary sources, archival materials, interpretive framework |
+| Interpretive/Hermeneutic | Primary sources, archival materials, interpretive framework. Treat `design.md` as provisional; you may rewrite it after seeing the first draft, and that's the method, not failure. |
 | Mixed Methods | Combine relevant elements from above |
 
 **Note on sensitive data:** Context documents describe structure and approach. Never paste raw participant data, proprietary datasets, or confidential materials into AI.
@@ -364,7 +375,7 @@ The skill that most improves AI output is **specific, substantive pushback**.
 
 **Final entry:**
 ```markdown
-## YYYY-MM-DD - Complete
+## YYYY-MM-DD (Complete)
 
 ### What worked
 ### What I'd change
@@ -419,11 +430,11 @@ Core Principles:
 
 ## Sources
 
-- [Christopher Pollin: "Promptotyping"](https://lisa.gerda-henkel-stiftung.de/digitale_geschichte_pollin). L.I.S.A. Wissenschaftsportal, 2026.
-- [Andrew Maynard: "I cracked and wrote an academic paper using AI"](https://andrewmaynard.substack.com/p/i-cracked-and-wrote-an-academic-paper). The Future of Being Human, 2026.
-- [Steph Ango: "How I use Obsidian"](https://stephango.com/vault). stephango.com.
-- [Ethan Mollick: Co-Intelligence: Living and Working with AI](https://www.penguinrandomhouse.com/books/741805/co-intelligence-by-ethan-mollick/). Portfolio/Penguin Random House, 2024.
-- [The Neuron: "How to Turn Claude Code Into Your Personal AI Assistant"](https://www.theneuron.ai/explainer-articles/how-to-turn-claude-code-into-your-personal-ai-assistant). 2025.
+- Christopher Pollin: ["Promptotyping"](https://lisa.gerda-henkel-stiftung.de/digitale_geschichte_pollin). L.I.S.A. Wissenschaftsportal, 2026.
+- Andrew Maynard: ["I cracked and wrote an academic paper using AI"](https://andrewmaynard.substack.com/p/i-cracked-and-wrote-an-academic-paper). The Future of Being Human, 2026.
+- Steph Ango: ["How I use Obsidian"](https://stephango.com/vault). stephango.com.
+- Ethan Mollick: [Co-Intelligence: Living and Working with AI](https://www.penguinrandomhouse.com/books/741805/co-intelligence-by-ethan-mollick/). Portfolio/Penguin Random House, 2024.
+- The Neuron: ["How to Turn Claude Code Into Your Personal AI Assistant"](https://www.theneuron.ai/explainer-articles/how-to-turn-claude-code-into-your-personal-ai-assistant). 2025.
 
 ---
 
@@ -431,13 +442,13 @@ Core Principles:
 
 This guide is written for Claude Code and Obsidian as they exist in early 2026. Tools evolve. New AI assistants will emerge, interfaces will change, capabilities will expand.
 
-The methodology, however, is more durable:
+The methodology is more durable:
 - Context engineering (compress, don't dump)
 - Iterative critique (push back with specificity)
 - Verification throughout (don't trust, verify)
 - Process documentation (journal your work)
 
-If you're reading this in the future with different tools, the principles still apply. Adapt the specific instructions to whatever AI and knowledge management system you're using.
+If you're reading this with different tools, the principles still apply. Adapt the specific instructions to whatever AI and knowledge management system you're using.
 
 ---
 

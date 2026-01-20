@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(del \"c:\\\\Users\\\\chstn\\\\Desktop\\\\data\\\\DHCraft\\\\Projekte\\\\Git\\\\academic-writing-with-ai\\\\QUICK-START.md\")",
+      "Bash(git push)"
+    ]
+  }
+}
