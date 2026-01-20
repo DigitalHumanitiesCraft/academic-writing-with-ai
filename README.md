@@ -403,7 +403,7 @@ Core Principles:
 - [Christopher Pollin: "Promptotyping"](https://lisa.gerda-henkel-stiftung.de/digitale_geschichte_pollin) — L.I.S.A. Wissenschaftsportal, 2026.
 - [Andrew Maynard: "I cracked and wrote an academic paper using AI"](https://andrewmaynard.substack.com/p/i-cracked-and-wrote-an-academic-paper) — The Future of Being Human, 2026.
 - [Steph Ango: "How I use Obsidian"](https://stephango.com/vault) — stephango.com.
-- [Ethan Mollick: Co-Intelligence](https://www.oneusefulthing.org/) — Portfolio, 2024.
+- [Ethan Mollick: Co-Intelligence: Living and Working with AI](https://www.penguinrandomhouse.com/books/741805/co-intelligence-by-ethan-mollick/) — Portfolio/Penguin Random House, 2024.
 - [The Neuron: "How to Turn Claude Code Into Your Personal AI Assistant"](https://www.theneuron.ai/explainer-articles/how-to-turn-claude-code-into-your-personal-ai-assistant) — 2025.
 
 ---
