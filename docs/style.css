@@ -608,24 +608,7 @@ footer {
   }
 
   nav.sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-    top: 0;
-    border-right: none;
-    border-bottom: 1px solid rgba(96, 125, 139, 0.1);
-    padding: var(--space-md);
-  }
-
-  nav.sidebar ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-xs) var(--space-md);
-  }
-
-  nav.sidebar .section-title {
-    width: 100%;
-    margin-top: var(--space-sm);
+    display: none;
   }
 
   main {
