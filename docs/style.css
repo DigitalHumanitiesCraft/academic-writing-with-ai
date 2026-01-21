@@ -197,6 +197,12 @@ nav.sidebar a:hover {
   background: rgba(191, 91, 62, 0.08);
 }
 
+nav.sidebar a.active {
+  color: var(--color-terracotta);
+  background: rgba(191, 91, 62, 0.12);
+  font-weight: 500;
+}
+
 nav.sidebar .section-title {
   font-weight: 600;
   margin-top: var(--space-lg);

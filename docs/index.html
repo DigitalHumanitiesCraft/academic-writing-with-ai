@@ -721,6 +721,7 @@ Core Principles:
   </div>
 
   <script>
+    // Tab functionality
     function showTab(btn, tabId) {
       const tabs = btn.closest('.tabs');
       tabs.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -728,6 +729,46 @@ Core Principles:
       btn.classList.add('active');
       tabs.querySelector('#' + tabId).classList.add('active');
     }
+
+    // Scroll spy for sidebar highlighting
+    (function() {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('nav.sidebar a[href^="#"]');
+      const headerTitle = document.querySelector('.current-page');
+
+      const sectionTitles = {};
+      sections.forEach(section => {
+        const h2 = section.querySelector('h2');
+        if (h2) sectionTitles[section.id] = h2.textContent;
+      });
+
+      function updateActiveSection() {
+        const scrollPos = window.scrollY + 80;
+
+        let currentSection = null;
+        sections.forEach(section => {
+          if (section.offsetTop <= scrollPos) {
+            currentSection = section.id;
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + currentSection) {
+            link.classList.add('active');
+          }
+        });
+
+        if (currentSection && sectionTitles[currentSection] && headerTitle) {
+          headerTitle.textContent = sectionTitles[currentSection];
+        } else if (headerTitle) {
+          headerTitle.textContent = 'Academic Writing Guide';
+        }
+      }
+
+      window.addEventListener('scroll', updateActiveSection, { passive: true });
+      updateActiveSection();
+    })();
   </script>
 </body>
 </html>
