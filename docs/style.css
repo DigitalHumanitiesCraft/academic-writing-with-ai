@@ -541,6 +541,19 @@ th {
   display: block;
 }
 
+/* Diagram figures */
+figure.diagram {
+  margin: var(--space-lg) 0;
+  text-align: center;
+}
+
+figure.diagram img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+}
+
 /* Placeholder images */
 .placeholder {
   background: rgba(96, 125, 139, 0.08);
