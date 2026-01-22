@@ -434,14 +434,29 @@ th {
   text-transform: uppercase;
   letter-spacing: 0.03em;
   margin: 0 0 var(--space-sm) 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.aside .aside-title::before {
+  font-size: 1.1em;
 }
 
 .aside-caution .aside-title {
   color: var(--color-terracotta);
 }
 
+.aside-caution .aside-title::before {
+  content: "⚠";
+}
+
 .aside-note .aside-title {
   color: var(--color-slate);
+}
+
+.aside-note .aside-title::before {
+  content: "ℹ";
 }
 
 .aside p {
