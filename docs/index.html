@@ -103,21 +103,8 @@
 
         <h3>The Workflow Overview</h3>
 
-        <div class="card-grid">
-          <div class="card">
-            <h4>This Accelerates</h4>
-            <ul>
-              <li>Literature review and synthesis</li>
-              <li>Drafting and structuring arguments</li>
-              <li>Iterative revision</li>
-              <li>Cross-disciplinary exploration</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h4>This Does Not Replace</h4>
-            <p>Your domain expertise and the intellectual work only you can do: running experiments, conducting interviews, close reading, or formal derivation.</p>
-          </div>
-        </div>
+        <p><strong>This accelerates:</strong> literature synthesis, drafting, structuring arguments, iterative revision.</p>
+        <p><strong>This does not replace:</strong> your domain expertise—running experiments, conducting interviews, close reading, or formal derivation.</p>
       </section>
 
       <section id="core-insight">
@@ -127,7 +114,7 @@
         <p><strong>Provide structured, compressed context</strong> → get useful output.</p>
         <p>This is <strong>Context Engineering</strong>: actively managing what the AI sees. The documents you create aren't just notes. They shape what AI can do for you.</p>
 
-        <div class="aside aside-tip">
+        <div class="aside aside-note">
           <p class="aside-title">The Key Principle</p>
           <p>The context documents are the artifact. The generated text is replaceable.</p>
         </div>
@@ -231,7 +218,7 @@
       <section id="phase-1">
         <h2>Phase 1: Preparation</h2>
 
-        <div class="aside aside-tip">
+        <div class="aside aside-note">
           <p class="aside-title">Goal</p>
           <p>Assemble raw materials without organizing them yet.</p>
         </div>
@@ -263,7 +250,7 @@
       <section id="phase-2">
         <h2>Phase 2: Exploration & Mapping</h2>
 
-        <div class="aside aside-tip">
+        <div class="aside aside-note">
           <p class="aside-title">Goal</p>
           <p>Test your thesis against the literature and identify the strongest and weakest points of your argument.</p>
         </div>
@@ -309,7 +296,7 @@ Be critical, not agreeable.</code></pre>
       <section id="phase-3">
         <h2>Phase 3: Distillation</h2>
 
-        <div class="aside aside-tip">
+        <div class="aside aside-note">
           <p class="aside-title">Goal</p>
           <p>Compress everything you've learned into focused context documents that work well for AI.</p>
         </div>
@@ -356,7 +343,7 @@ Be critical, not agreeable.</code></pre>
           <li>Is this already in AI's training data? (Don't explain what regression is, or who Foucault was.)</li>
         </ul>
 
-        <div class="aside aside-tip">
+        <div class="aside aside-note">
           <p class="aside-title">Link, Don't Paste</p>
           <p>Reference sources in <code>/References</code>; the AI gets the distilled insight, you keep the full record. When prompting Claude Code, explicitly instruct it to read linked files: "Read all files linked in the References section before generating the draft."</p>
         </div>
@@ -373,7 +360,7 @@ Be critical, not agreeable.</code></pre>
       <section id="phase-4">
         <h2>Phase 4: Implementation</h2>
 
-        <div class="aside aside-tip">
+        <div class="aside aside-note">
           <p class="aside-title">Goal</p>
           <p>Generate, critique, and refine drafts until the quality is publishable.</p>
         </div>
@@ -430,7 +417,7 @@ Assess:
 
 Be harsh. I need criticism, not encouragement.</code></pre>
 
-        <div class="aside aside-tip">
+        <div class="aside aside-note">
           <p>Many academic journals publish their reviewer guidelines online. Feed these criteria into your review prompt for discipline-appropriate feedback.</p>
         </div>
 
@@ -498,49 +485,32 @@ Be harsh. I need criticism, not encouragement.</code></pre>
         <h2>Effective Critique</h2>
         <p>The skill that most improves AI output is <strong>specific, substantive pushback</strong>.</p>
 
-        <div class="tabs">
-          <div class="tab-buttons">
-            <button class="tab-btn active" onclick="showTab(this, 'weak')">Weak Critique</button>
-            <button class="tab-btn" onclick="showTab(this, 'strong')">Strong Critique</button>
-          </div>
-          <div id="weak" class="tab-content active">
-            <ul>
-              <li>"Make it better"</li>
-              <li>"This isn't quite right"</li>
-              <li>"More academic"</li>
-            </ul>
-          </div>
-          <div id="strong" class="tab-content">
-            <ul>
-              <li>"Claim X in paragraph 3 has no supporting evidence. Add citation or remove."</li>
-              <li>"The logical structure is: A → B → C. But B → C isn't argued, only asserted. Explain the mechanism."</li>
-              <li>"This uses positivist framing. My approach is interpretivist. Reframe around meaning-making, not causation."</li>
-              <li>"Section 4 is 800 words but adds nothing not already in section 2. Cut or differentiate."</li>
-            </ul>
-          </div>
-        </div>
+        <table>
+          <tr>
+            <th>Weak</th>
+            <th>Strong</th>
+          </tr>
+          <tr>
+            <td>"Make it better"</td>
+            <td>"Claim X in paragraph 3 has no supporting evidence. Add citation or remove."</td>
+          </tr>
+          <tr>
+            <td>"This isn't quite right"</td>
+            <td>"The logical structure is: A → B → C. But B → C isn't argued, only asserted."</td>
+          </tr>
+          <tr>
+            <td>"More academic"</td>
+            <td>"This uses positivist framing. My approach is interpretivist. Reframe around meaning-making."</td>
+          </tr>
+        </table>
 
         <h3>Domain-Specific Examples</h3>
-        <div class="tabs">
-          <div class="tab-buttons">
-            <button class="tab-btn active" onclick="showTab(this, 'quant')">Quantitative</button>
-            <button class="tab-btn" onclick="showTab(this, 'exp')">Experimental</button>
-            <button class="tab-btn" onclick="showTab(this, 'theo')">Theoretical</button>
-            <button class="tab-btn" onclick="showTab(this, 'qual')">Qualitative</button>
-          </div>
-          <div id="quant" class="tab-content active">
-            <p>"You describe 'significant results' without specifying significance level, test used, or effect size. Add statistical specifics."</p>
-          </div>
-          <div id="exp" class="tab-content">
-            <p>"Methods must follow CONSORT structure. Reorganize into: participants, interventions, outcomes, sample size, randomization."</p>
-          </div>
-          <div id="theo" class="tab-content">
-            <p>"The proof sketch in section 3 skips from step 2 to step 4. Make the intermediate step explicit."</p>
-          </div>
-          <div id="qual" class="tab-content">
-            <p>"This reads as naive realism. Add reflexivity statement addressing researcher positionality."</p>
-          </div>
-        </div>
+        <ul>
+          <li><strong>Quantitative:</strong> "You describe 'significant results' without specifying significance level, test used, or effect size."</li>
+          <li><strong>Experimental:</strong> "Methods must follow CONSORT structure. Reorganize into: participants, interventions, outcomes."</li>
+          <li><strong>Theoretical:</strong> "The proof sketch in section 3 skips from step 2 to step 4. Make the intermediate step explicit."</li>
+          <li><strong>Qualitative:</strong> "This reads as naive realism. Add reflexivity statement addressing researcher positionality."</li>
+        </ul>
       </section>
 
       <section id="journal">
@@ -577,30 +547,15 @@ Be harsh. I need criticism, not encouragement.</code></pre>
       <section id="problems">
         <h2>Common Problems</h2>
 
-        <div class="card">
-          <h4>AI keeps producing generic output</h4>
-          <p>Your context is too vague or too long. Distill harder. Be more specific in requirements.</p>
-        </div>
+        <p><strong>AI keeps producing generic output.</strong> Your context is too vague or too long. Distill harder. Be more specific in requirements.</p>
 
-        <div class="card">
-          <h4>AI ignores my theoretical framework</h4>
-          <p>State it explicitly in prompts: "My approach is [X]. Do not use [Y] framing."</p>
-        </div>
+        <p><strong>AI ignores my theoretical framework.</strong> State it explicitly in prompts: "My approach is [X]. Do not use [Y] framing."</p>
 
-        <div class="card">
-          <h4>AI hallucinates citations</h4>
-          <p>Constrain: "Only cite from these sources: [list]." Verify everything anyway.</p>
-        </div>
+        <p><strong>AI hallucinates citations.</strong> Constrain: "Only cite from these sources: [list]." Verify everything anyway.</p>
 
-        <div class="card">
-          <h4>Output improves then degrades</h4>
-          <p>Context window filling up. Start fresh session with just context documents.</p>
-        </div>
+        <p><strong>Output improves then degrades.</strong> Context window filling up. Start fresh session with just context documents.</p>
 
-        <div class="card">
-          <h4>Workflow feels slow</h4>
-          <p>For shorter papers, combine documents (research + requirements in one file). Skip peer review cycles. The full workflow is for substantial research papers.</p>
-        </div>
+        <p><strong>Workflow feels slow.</strong> For shorter papers, combine documents. Skip peer review cycles. The full workflow is for substantial research papers.</p>
       </section>
 
       <section id="quick-ref">
@@ -658,15 +613,6 @@ Core Principles:
   </div>
 
   <script>
-    // Tab functionality
-    function showTab(btn, tabId) {
-      const tabs = btn.closest('.tabs');
-      tabs.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      tabs.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-      btn.classList.add('active');
-      tabs.querySelector('#' + tabId).classList.add('active');
-    }
-
     // Scroll spy for sidebar highlighting
     (function() {
       const sections = document.querySelectorAll('section[id]');
